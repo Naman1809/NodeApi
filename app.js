@@ -1,6 +1,7 @@
 import express from "express";
 import userRoutes from "./routes/userRoutes.js"
 import {config} from "dotenv";
+import cookieParser from "cookie-parser";
 
 export const app = express();
 
@@ -10,5 +11,6 @@ config({
 
 
 app.use(express.json());
+app.use(cookieParser());
 
-app.use("/users",userRoutes);
+app.use("/api/v1/users",userRoutes);

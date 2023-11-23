@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getHomePage, getUserDetails, register } from "../controllers/userController.js";
+import { getAllUsers, getHomePage, getMyPofile, login, register } from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -7,8 +7,11 @@ router.get("/", getHomePage);
 
 router.get("/all",getAllUsers );
 
-router.get("/userid/:id",getUserDetails );
+router.get("/me",getMyPofile );
 
 router.post("/new",register );
+
+router.post("/login",login );
+
 
 export default router;
