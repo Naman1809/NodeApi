@@ -1,17 +1,19 @@
 import express from "express";
-import { getAllUsers, getHomePage, getMyPofile, login, register } from "../controllers/userController.js";
+import {getHomePage, getMyPofile, login, logout, register } from "../controllers/userController.js";
+import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 
 router.get("/", getHomePage);
 
-router.get("/all",getAllUsers );
 
-router.get("/me",getMyPofile );
+router.get("/me", isAuthenticated ,getMyPofile );
 
 router.post("/new",register );
 
 router.post("/login",login );
+
+router.get("/logout",logout );
 
 
 export default router;
