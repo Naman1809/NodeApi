@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     headers: {
-        "Access-Control-Allow-Origin": [process.env.FRONT_END_URL],
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
       },
     origin:"http://localhost:5173",
