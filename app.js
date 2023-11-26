@@ -17,9 +17,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors()
 );
-app.options( 'http://localhost:5173' , cors({ origin:[process.env.FRONTEND_URL],
-methods:["GET","POST","PUT","DELETE"],
-credentials:true,}))
+app.use(cors({
+  origin:[process.env.FRONTEND_URL],
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:false
+    
+}))
+// app.options( 'http://localhost:5173' , cors({ origin:[process.env.FRONTEND_URL],
+// methods:["GET","POST","PUT","DELETE"],
+// ,}))
 
 app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/task",taskRoutes);
