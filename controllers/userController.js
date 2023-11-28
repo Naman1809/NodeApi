@@ -7,7 +7,7 @@ export const getHomePage = (req, res) => {
   res.send("Hello");
 };
 
-export const getMyPofile = (req, res) => {
+export const getMyPofile = (req, res,next) => {
   try {
     res.status(200).json({
       success: true,
@@ -18,7 +18,7 @@ export const getMyPofile = (req, res) => {
   }
 };
 
-export const register = async (req, res) => {
+export const register = async (req, res,next) => {
   try {
     const { name, email, password } = req.body;
     let user = await User.findOne({ email });
@@ -36,7 +36,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res,next) => {
   try {
     const { email, password } = req.body;
     // yha pe select ka use kyu hia ki jo hamne schema bnaya hai na usme jb user ko koi acess kkarega to uske passowrd ko acess nhi kr paeg awo obviously to select se ham keh rhe hai ki jo data jaise name email wagera mil rha hia wo to mile hi sath mai +password bhi mile tabhi acess kr payenge
@@ -53,7 +53,7 @@ export const login = async (req, res) => {
   }
 };
 
-export const logout = async (req, res) => {
+export const logout = async (req, res,next) => {
   try {
     res
       .status(200)
